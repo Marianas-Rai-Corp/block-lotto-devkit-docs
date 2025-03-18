@@ -34,13 +34,13 @@ title = 'MRC DOCS'
 # [[menu.before]]
 
 [[menu.after]]
-  name = "Github"
-  url = "https://github.com/hansekontor/clux"
+  name = "Clux Demo"
+  url = "https://dev.cert.cash/"
   weight = 10
 
 [[menu.after]]
-  name = "Clux Demo"
-  url = "https://dev.cert.cash/"
+  name = "Github"
+  url = "https://github.com/hansekontor/clux"
   weight = 20
 
 [params]
