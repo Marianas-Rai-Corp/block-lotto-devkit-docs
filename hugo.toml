@@ -1,6 +1,6 @@
 # Base configuration
-baseURL = 'https://example.org/'
-title = 'Clux Documentation'
+baseURL = 'https://clux-docs.netlify.app/'
+title = 'MRC'
 
 # Enable Hugo Modules
 [module]
@@ -55,11 +55,11 @@ title = 'Clux Documentation'
 
   # (Optional, default favicon.png) Set the path to a favicon file.
   # If the favicon is /static/favicon.png then the path would be favicon.png
-  # BookFavicon = 'favicon.png'
+  BookFavicon = 'favicon.ico'
 
   # (Optional, default none) Set the path to a logo for the book.
   # If the logo is /static/logo.png then the path would be logo.png
-  # BookLogo = 'logo.png'
+  BookLogo = 'logo.png'
 
   # (Optional, default docs) Specify root page to render child pages as menu.
   # Page is resoled by .GetPage function: https://gohugo.io/functions/getpage/
