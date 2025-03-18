@@ -1,6 +1,6 @@
 # Base configuration
 baseURL = 'https://clux-docs.netlify.app/'
-title = 'MRC'
+title = 'MRC DOCS'
 
 # Enable Hugo Modules
 [module]
