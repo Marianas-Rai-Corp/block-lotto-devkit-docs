@@ -18,9 +18,9 @@ This documentation provides all the necessary information to understand and use 
 
 To get started with the Clux documentation site, follow these steps:
 
-1. **Clone the repository (including submodules):**
+1. **Clone the repository:**
     ```sh
-    git clone --recurse-submodules https://github.com/ryansallen98/clux-documentation.git
+    git clone https://github.com/ryansallen98/clux-documentation.git
     ```
 2. **Navigate to the project directory:**
     ```sh

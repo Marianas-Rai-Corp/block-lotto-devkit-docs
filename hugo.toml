@@ -1,7 +1,11 @@
 # Base configuration
 baseURL = 'https://example.org/'
 title = 'Clux Documentation'
-theme = "hugo-book"
+
+# Enable Hugo Modules
+[module]
+  [[module.imports]]
+  path = "github.com/alex-shpak/hugo-book"
 
 # Multi-lingual mode config
 # There are different options to translate files
