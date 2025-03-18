@@ -1,0 +1,29 @@
+# Hugo build artifacts
+/public/
+/resources/
+/assets/jsconfig.json
+
+# Hugo caches
+.hugo_build.lock
+.hugo_cache/
+
+# Local environment
+.env
+.DS_Store
+Thumbs.db
+
+# Git submodules (if you want to track the theme separately)
+themes/hugo-book/
+
+# Node modules (if using npm/yarn for assets)
+node_modules/
+
+# Backup and temporary files
+*.bak
+*.swp
+*.swo
+*~
+
+# IDE-specific files
+.vscode/
+.idea/
