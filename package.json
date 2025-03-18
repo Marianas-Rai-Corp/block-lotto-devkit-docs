@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Documentation site using Hugo with the Hugo Book theme",
     "scripts": {
-        "start": "hugo server --minify --theme hugo-book"
+        "start": "hugo server --minify"
     },
     "author": ""
 }
