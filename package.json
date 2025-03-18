@@ -5,7 +5,8 @@
     "scripts": {
         "start": "hugo server --minify --theme hugo-book"
     },
-    "dependencies": {},
-    "devDependencies": {},
+    "dependencies": {
+        "hugo": "^0.0.3"
+    },
     "author": ""
 }
