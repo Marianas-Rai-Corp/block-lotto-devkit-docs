@@ -1,0 +1,116 @@
+{{ if default true .Site.Params.BookSearch }}
+  {{/*  <div class="book-search hidden relative">
+    <label class="input">
+      <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <g
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-width="2.5"
+          fill="none"
+          stroke="currentColor"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </g>
+      </svg>
+      <input
+        type="search"
+        class="grow"
+        maxlength="64"
+        data-hotkeys="s/"
+        placeholder="{{ i18n "Search" }}"
+        aria-label="{{ i18n "Search" }}"
+        id="book-search-input"
+      />
+      <!-- The kbd element will be adjusted based on the OS -->
+      <kbd class="kbd kbd-sm" id="search-key-1"></kbd>
+      <kbd class="kbd kbd-sm" id="search-key-2"></kbd>
+    </label>
+    <div class="book-search-spinner hidden"></div>
+    <div id="book-search-results"></div>
+  </div>  */}}
+
+  <!-- The button to open modal -->
+  <label role="button" class="btn btn-ghost btn-sm md:hidden" for="search-modal">
+    <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <g
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        stroke-width="2.5"
+        fill="none"
+        stroke="currentColor"
+      >
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.3-4.3"></path>
+      </g>
+    </svg>
+  </label>
+
+  <!-- Put this part before </body> tag -->
+  <input type="checkbox" id="search-modal" class="modal-toggle" />
+  <div class="modal md:!static md:!visible md:!opacity-100 md:!p-0 md:!bg-transparent md:!rounded-none md:!overflow-visible md:!scale-100 md:!pointer-events-auto z-90" role="dialog">
+    <div class="modal-box md:!block md:!shadow-none md:!opacity-100 md:!p-0 md:!w-full md:!rounded-none md:!overflow-visible md:!scale-100 md:!pointer-events-auto">
+      <div class="book-search hidden relative">
+      <label class="input w-full">
+        <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <g
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            stroke-width="2.5"
+            fill="none"
+            stroke="currentColor"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </g>
+        </svg>
+        <input
+          type="search"
+          class="grow"
+          maxlength="64"
+          data-hotkeys="s/"
+          placeholder="{{ i18n "Search" }}"
+          aria-label="{{ i18n "Search" }}"
+          id="book-search-input"
+        />
+        <!-- The kbd element will be adjusted based on the OS -->
+        <kbd class="kbd kbd-sm" id="search-key-1"></kbd>
+        <kbd class="kbd kbd-sm" id="search-key-2"></kbd>
+      </label>
+      <div class="book-search-spinner hidden"></div>
+      <div id="book-search-results"></div>
+    </div>  
+    </div>
+    <label class="modal-backdrop" for="search-modal">Close</label>
+  </div>
+
+  <script>
+    // Detect OS and set appropriate shortcut (⌘ + K for macOS, Ctrl + K for Windows/Linux)
+    const isMac = navigator.platform.indexOf('Mac') !== -1;
+    const isWindowsOrLinux = !isMac;
+
+    // Set the appropriate key text in the kbd elements based on the OS
+    if (isMac) {
+      document.getElementById("search-key-1").textContent = "⌘"; // macOS Command key
+      document.getElementById("search-key-2").textContent = "K"; // K key
+    } else {
+      document.getElementById("search-key-1").textContent = "Ctrl"; // Windows/Linux Control key
+      document.getElementById("search-key-2").textContent = "K"; // K key
+    }
+
+    document.addEventListener("keydown", function(event) {
+      // macOS - Command + K (⌘ + K)
+      if (isMac && event.key === "k" && event.metaKey) {
+        event.preventDefault(); // Prevent default behavior
+        document.getElementById("book-search-input").focus(); // Focus the search input
+      }
+      // Windows/Linux - Control + K (Ctrl + K)
+      else if (isWindowsOrLinux && event.key === "k" && event.ctrlKey) {
+        event.preventDefault(); // Prevent default behavior
+        document.getElementById("book-search-input").focus(); // Focus the search input
+      }
+    });
+
+    document.querySelector(".book-search").classList.remove("hidden");
+  </script>
+{{ end }}

@@ -1,0 +1,7 @@
+<details {{ if or (.Get "open") (in .Params "open") }}open{{ end }} class="collapse collapse-arrow bg-base-100 border border-base-300 mb-4">
+  {{- $summary := cond .IsNamedParams (.Get "title") (.Get 0) -}}
+  <summary class="collapse-title font-semibold">{{ $summary }}</summary>
+  <div class="collapse-content">
+    {{- .Inner | markdownify -}}
+  </div>
+</details>

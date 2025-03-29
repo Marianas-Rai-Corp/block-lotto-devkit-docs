@@ -1,0 +1,17 @@
+- id: Search
+  translation: Cerca
+
+- id: Edit this page
+  translation: Modifica questa pagina
+
+- id: Last modified by
+  translation: Ultima modifica di
+
+- id: Expand
+  translation: Espandi
+
+- id: bookSearchConfig
+  translation: '{ cache: true }'
+
+- id: Table of Content
+  translation: Indice dei contenuti

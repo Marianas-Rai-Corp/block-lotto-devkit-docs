@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+  <head>
+    {{ partial "head/head.html" . }}
+    {{ partial "head/inject/head" . }}
+  </head>
+  <body>
+    {{ partial "header/header.html" . }}
+    <div class="container mx-auto flex">
+      {{ partial "menu/menu.html" . }}
+      <div class="sidebar-overlay xl:hidden"></div>
+      <div class="mx-auto w-full">
+        <div class="flex">
+          {{ $hasToc := false }}
+          {{ with .TableOfContents }}
+            {{ if ne . "<nav id=\"TableOfContents\"></nav>" }} 
+              {{ $hasToc = true }} 
+            {{ end }}
+          {{ end }}
+
+          {{ if and (default true (default .Site.Params.BookToC .Params.BookToC)) $hasToc }}
+            <div class="drawer drawer-end 2xl:drawer-open">
+              <input id="toc-drawer" type="checkbox" class="drawer-toggle" />
+              <div class="drawer-side sidebar-toc--wrapper">
+                <label for="toc-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+                {{ template "toc" . }}
+              </div>
+              <div class="drawer-content">
+                <div
+                  class="flex-1 px-4 md:px-8"
+                  style="height: calc(100vh - 65px); overflow-y: auto;"
+                >
+                  <main class="content pt-4">
+                    <div
+                      class="tooltip tooltip-left absolute top-2 right-2 z-40 2xl:hidden"
+                      data-tip="{{ i18n "Table of Content" }}"
+                    >
+                      <label for="toc-drawer" class="drawer-button btn btn-sm">
+                        <svg
+                          class="h-4 w-4 fill-current"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M3 9h14V7H3v2zm0 4h14v-2H3v2zm0 4h14v-2H3v2zm16 0h2v-2h-2v2zm0-10v2h2V7h-2zm0 6h2v-2h-2v2z"
+                          />
+                          <path d="M0 0h24v24H0z" fill="none" />
+                        </svg>
+                      </label>
+                    </div>
+                    {{ partial "body/inject/content-before" . }}
+                    {{ template "main" . }}
+                    {{ partial "body/inject/content-after" . }}
+                    {{ partial "docs/doc-meta.html" . }}
+                  </main>
+                  <footer>
+                    {{ partial "footer/footer.html" . }}
+                    {{ partial "footer/inject/footer" . }}
+                  </footer>
+                </div>
+              </div>
+            </div>
+          {{ else }}
+            <div class="flex-1 px-8" style="height: calc(100vh - 65px); overflow-y: auto;">
+              <main class="content pt-4">
+                {{ partial "body/inject/content-before" . }}
+                {{ template "main" . }}
+                {{ partial "body/inject/content-after" . }}
+                {{ partial "docs/doc-meta.html" . }}
+              </main>
+              <footer>
+                {{ partial "footer/footer.html" . }}
+                {{ partial "footer/inject/footer" . }}
+              </footer>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+
+    {{ partial "body/inject/body" . }}
+  </body>
+</html>
+
+{{ define "toc" }}
+  {{ partial "toc/toc" . }}
+{{ end }}
+
+{{ define "main" }}
+  <article class="markdown book-article">
+    {{- .Content -}}
+  </article>
+{{ end }}

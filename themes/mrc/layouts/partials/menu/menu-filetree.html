@@ -1,0 +1,56 @@
+{{ $bookSection := default "docs" .Site.Params.BookSection }}
+{{ if eq $bookSection "*" }}
+  {{ $bookSection = "/" }}{{/* Backward compatibility */}}
+{{ end }}
+
+{{ with .Site.GetPage $bookSection }}
+  {{ template "book-section-children" (dict "Section" . "CurrentPage" $ "Root" true) }}
+{{ end }}
+
+{{ define "book-section-children" }}
+  <ul {{ if .Root }} class="menu rounded-box w-full" {{ end }}>
+    {{ range (where .Section.Pages "Params.bookHidden" "ne" true) }}
+      {{ if .IsSection }}
+        <li>
+          {{ if .Pages }}
+            <details {{ if or (not .Page.Params.BookCollapseSection) (.Page.IsAncestor $.CurrentPage) (eq .Page $.CurrentPage) }} open {{ end }}>
+              <summary class="{{ if eq .Page $.CurrentPage }} menu-active {{ end }}">
+                {{ template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
+              </summary>
+              {{ template "book-section-children" (dict "Section" . "CurrentPage" $.CurrentPage "Root" false) }}
+            </details>
+          {{ else }}
+            {{ template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
+          {{ end }}
+        </li>
+      {{ else if and .IsPage .Content }}
+        <li>
+          {{ template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
+        </li>
+      {{ end }}
+    {{ end }}
+  </ul>
+{{ end }}
+
+
+
+{{ define "book-page-link" }}
+  {{ $current := eq .CurrentPage .Page }}
+  {{ $ancestor := .Page.IsAncestor .CurrentPage }}
+  {{ if .Page.Params.BookHref }}
+    <a
+      href="{{ .Page.Params.BookHref }}"
+      class="{{ if $current }}menu-active{{ end }}"
+      target="_blank"
+      rel="noopener"
+    >
+      {{- partial "menu/title" .Page -}}
+    </a>
+  {{ else if .Page.Content }}
+    <a href="{{ .Page.RelPermalink }}" class="{{ if $current }}menu-active{{ end }}">
+      {{- partial "menu/title" .Page -}}
+    </a>
+  {{ else }}
+    <span>{{- partial "menu/title" .Page -}}</span>
+  {{ end }}
+{{ end }}

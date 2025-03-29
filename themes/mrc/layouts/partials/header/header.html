@@ -1,0 +1,15 @@
+<header class="navbar bg-base-100 border-color-default sticky top-0 z-50 border-b border-dashed">
+  <div class="container mx-auto flex items-center">
+    <div class="flex flex-1 items-center">
+      {{ partial "header/menu.html" . }}
+      {{ partial "header/brand.html" . }}
+    </div>
+    <div class="flex flex-none items-center gap-0 md:gap-4">
+      {{ partial "header/search.html" . }}
+      <div class="flex items-center gap-0">
+        {{ partial "header/mode.html" . }}
+        {{ partial "header/languages.html" . }}
+      </div>
+    </div>
+  </div>
+</header>

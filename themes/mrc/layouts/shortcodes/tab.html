@@ -1,0 +1,4 @@
+{{- $group := printf "tabs-%v" (default .Parent.Ordinal (.Parent.Get 0)) -}}
+{{- $tab := printf "%s-%d" $group .Ordinal }}
+<input type="radio" id="{{ $tab }}" name="{{ $group }}" class="tab" aria-label="{{- .Get 0 -}}" {{ if not .Ordinal }}checked="checked"{{ end }}/>
+<div class="tab-content border-base-300 bg-base-100 p-10">{{- .Inner -}}</div>

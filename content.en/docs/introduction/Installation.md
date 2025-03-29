@@ -24,6 +24,7 @@ To get started with the Clux documentation site, follow these steps:
     ```
 
 4. **Start the app:**
+
     ```sh
     yarn start
     ```
@@ -33,4 +34,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.
 You will also see any lint errors in the console.
-

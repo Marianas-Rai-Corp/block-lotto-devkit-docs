@@ -1,0 +1,14 @@
+<aside
+  id="menu-sidebar"
+  class="sidebar border-color-default bg-base-100 fixed z-90 border-r border-dashed py-4 xl:py-0 xl:sticky w-80 xl:pr-0 xl:pl-4"
+>
+  <nav class="w-full">
+    {{ partial "menu/inject/menu-before" . }}
+    {{ partial "menu/menu-hugo" .Site.Menus.before }}
+
+    {{ partial "menu/menu-filetree" . }}
+
+    {{ partial "menu/menu-hugo" .Site.Menus.after }}
+    {{ partial "menu/inject/menu-after" . }}
+  </nav>
+</aside>

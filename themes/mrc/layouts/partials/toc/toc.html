@@ -1,0 +1,12 @@
+{{ with .TableOfContents }}
+  {{ if ne . "<nav id=\"TableOfContents\"></nav>" }}  {{/* Check if TOC is not empty */}}
+    <aside class="sidebar-toc order-1 border-l border-dashed border-color-default pt-8 pl-8 pr-8 2xl:pl-4 2xl:pr-0">
+      {{ partial "toc/inject/toc-before" . }}
+      <nav class="w-full">
+        <div>{{ i18n "Table of Content" }}</div>
+        <div>{{ . | replaceRE "<ul>" "<ul class='menu menu-xs'>" | safeHTML }}</div>
+      </nav>
+      {{ partial "toc/inject/toc-after" . }}
+    </aside>
+  {{ end }}
+{{ end }}

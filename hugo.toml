@@ -1,11 +1,15 @@
 # Base configuration
 baseURL = 'https://clux-docs.netlify.app/'
 title = 'MRC DOCS'
+enableGitInfo = true
 
-# Enable Hugo Modules
-[module]
-  [[module.imports]]
-  path = "github.com/alex-shpak/hugo-book"
+# Enable Custom Theme
+theme = "mrc"
+
+# # Enable Hugo Modules
+# [module]
+#   [[module.imports]]
+#   path = "github.com/alex-shpak/hugo-book"å
 
 # Multi-lingual mode config
 # There are different options to translate files
@@ -17,16 +21,21 @@ title = 'MRC DOCS'
   contentDir = 'content.en'
   weight = 1
 
-# [languages.zh]
-#   languageName = 'Chinese'
-#   contentDir = 'content.zh'
-#   weight = 2
+[languages.ex]
+  languageName = 'Example'
+  contentDir = 'content.example'
+  weight = 2
 
-# [languages.he]
-#   languageName = 'Hebrew'
-#   contentDir = 'content.he'
-#   languageDirection = 'rtl'
-#   weight = 3
+[languages.he]
+  languageName = 'עִברִית'
+  contentDir = 'content.he'
+  languageDirection = 'rtl'
+  weight = 3
+
+[languages.zh]
+  languageName = '中国人'
+  contentDir = 'content.zh'
+  weight = 4
 
 
 # Menu configuration

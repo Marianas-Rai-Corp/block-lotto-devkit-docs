@@ -1,0 +1,13 @@
+
+{{ if not (.Page.Scratch.Get "highlight") }}
+<!-- Include highlightjs only first time -->
+<link rel="stylesheet" href="{{ "github-dark.min.css" | relURL }}">
+<script src="{{ "highlight.min.js" | relURL }}"></script>
+<script>hljs.highlightAll();</script>
+
+{{ .Page.Scratch.Set "highlight" true }}
+{{ end }}
+
+<div class="mockup-code w-full">
+  <pre><code>{{ .Inner }}</code></pre>
+</div>

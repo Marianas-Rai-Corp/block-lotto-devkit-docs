@@ -1,0 +1,75 @@
+{{- $ref := "" }}
+{{- $target := "" -}}
+{{- $sizeClass:= "" -}}
+{{- $variantClass:= "" -}}
+{{- $colorClass:= "" -}}
+
+{{/*  Link  */}}
+{{- with .Get "href" -}}
+  {{- $ref = . -}}
+  {{- $target = "_blank" -}}
+{{- end -}}
+
+{{/*  Ref  */}}
+{{- with .Get "relref" -}}
+  {{- $ref = relref $ . -}}
+{{- end -}}
+
+{{/*  Size  */}}
+{{- with .Get "size" -}}
+  {{- if eq . "xs" -}} 
+    {{- $sizeClass = "btn-xs" -}}
+  {{- else if eq . "sm" -}} 
+    {{- $sizeClass = "btn-sm" -}}
+  {{- else if eq . "lg" -}} 
+    {{- $sizeClass = "btn-lg" -}}
+  {{- else if eq . "xl" -}} 
+    {{- $sizeClass = "btn-xl" -}}
+  {{- else -}}
+    {{- $sizeClass = "" -}}
+  {{- end -}}
+{{- end -}}
+
+{{/*  Variant  */}}
+{{- with .Get "variant" -}}
+  {{- if eq . "outlined" -}} 
+    {{- $variantClass = "btn-outline" -}}
+  {{- else if eq . "dash" -}} 
+    {{- $variantClass = "btn-dash" -}}
+  {{- else if eq . "soft" -}} 
+    {{- $variantClass = "btn-soft" -}}
+  {{- else if eq . "ghost" -}} 
+    {{- $variantClass = "btn-ghost" -}}
+    {{- else if eq . "link" -}} 
+    {{- $variantClass = "btn-link" -}}
+  {{- else -}}
+    {{- $variantClass = "" -}}
+  {{- end -}}
+{{- end -}}
+
+{{/*  Color  */}}
+{{- with .Get "color" -}}
+  {{- if eq . "neutral" -}} 
+    {{- $colorClass = "btn-neutral" -}}
+  {{- else if eq . "primary" -}} 
+    {{- $colorClass = "btn-primary" -}}
+  {{- else if eq . "secondary" -}} 
+    {{- $colorClass = "btn-secondary" -}}
+  {{- else if eq . "accent" -}} 
+    {{- $colorClass = "btn-accent" -}}
+    {{- else if eq . "info" -}} 
+    {{- $colorClass = "btn-info" -}}
+    {{- else if eq . "success" -}} 
+    {{- $colorClass = "btn-success" -}}
+    {{- else if eq . "warning" -}} 
+    {{- $colorClass = "btn-warning" -}}
+    {{- else if eq . "error" -}} 
+    {{- $colorClass = "btn-error" -}}
+  {{- else -}}
+    {{- $colorClass = "" -}}
+  {{- end -}}
+{{- end -}}
+
+<a role="button" {{ with $ref }} href="{{.}}" {{ end }} {{ with $target }} target="{{.}}" rel="noopener" {{ end }} class="btn {{ $variantClass }} {{ $sizeClass }} {{ $colorClass }}{{ with .Get "class" }} {{ . }}{{ end }}">
+  {{- .InnerDeindent -}}
+</a>

@@ -1,0 +1,57 @@
+<!-- Toggle Button -->
+<label class="swap swap-rotate btn btn-ghost btn-sm xl:hidden">
+  <!-- Hidden checkbox controls state -->
+  <input type="checkbox" id="menuToggle" />
+
+  <!-- Hamburger icon (shown when unchecked) -->
+  <svg
+    class="swap-off h-6 w-6 fill-current"
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 512 512"
+  >
+    <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
+  </svg>
+
+  <!-- Close icon (shown when checked) -->
+  <svg
+    class="swap-on h-6 w-6 fill-current"
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 512 512"
+  >
+    <polygon
+      points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"
+    />
+  </svg>
+</label>
+
+<!-- JavaScript -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.getElementById("menu-sidebar");
+    const sidebarOverlay = document.getElementsByClassName("sidebar-overlay")[0];
+
+    function toggleSidebar(state) {
+      menuToggle.checked = state;
+      sidebar.classList.toggle("open", state);
+      sidebarOverlay.classList.toggle("open", state);
+    }
+
+    // Reset state on page load
+    toggleSidebar(false);
+
+    // Listen for checkbox state change
+    menuToggle.addEventListener("change", function () {
+      toggleSidebar(this.checked);
+    });
+
+    // Close sidebar when clicking overlay
+    sidebarOverlay.addEventListener("click", function () {
+      toggleSidebar(false);
+    });
+  });
+</script>
