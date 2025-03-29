@@ -85,7 +85,7 @@
 }
 
 .sidebar {
-  height: calc(100vh - 65px);
+  height: calc(100dvh - 65px);
   top: 64px;
   overflow-y: auto;
   left: -100%;
@@ -117,12 +117,12 @@
 .sidebar-toc--wrapper {
   z-index: 20;
   top: 64px;
-  height: calc(100vh - 65px);
+  height: calc(100dvh - 65px);
 }
 
 @media (min-width: 1536px) {
   .sidebar-toc--wrapper {
-    height: calc(100vh - 65px);
+    height: calc(100dvh - 65px);
     box-sizing: border-box;
   }
 }

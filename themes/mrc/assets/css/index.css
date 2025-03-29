@@ -3171,11 +3171,6 @@
       width: 100% !important;
     }
   }
-  .md\:w-full {
-    @media (width >= 48rem) {
-      width: 100%;
-    }
-  }
   .md\:\!scale-100 {
     @media (width >= 48rem) {
       --tw-scale-x: 100% !important;
@@ -3366,7 +3361,7 @@
   border-color: color-mix(in oklab, var(--color-base-content) 20%, #0000);
 }
 .sidebar {
-  height: calc(100vh - 65px);
+  height: calc(100dvh - 65px);
   top: 64px;
   overflow-y: auto;
   left: -100%;
@@ -3394,11 +3389,11 @@
 .sidebar-toc--wrapper {
   z-index: 20;
   top: 64px;
-  height: calc(100vh - 65px);
+  height: calc(100dvh - 65px);
 }
 @media (min-width: 1536px) {
   .sidebar-toc--wrapper {
-    height: calc(100vh - 65px);
+    height: calc(100dvh - 65px);
     box-sizing: border-box;
   }
 }
