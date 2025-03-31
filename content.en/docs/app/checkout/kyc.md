@@ -1,7 +1,7 @@
 ---
 weight: 3
 bookFlatSection: true
-title: "Customization"
+title: "KYC"
 ---
 
-# Customization
+# Know Your Customer (KYC)

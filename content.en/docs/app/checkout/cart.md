@@ -1,7 +1,7 @@
 ---
 weight: 4
 bookFlatSection: true
-title: "How to Guide"
+title: "Cart"
 ---
 
-# How to Guide
+# Cart

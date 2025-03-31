@@ -1,10 +1,12 @@
 ---
-weight: 2
+weight: 1
 bookFlatSection: true
 title: "Overview"
 ---
 
 # Overview
+
+The Marianas Blockchain Lottery, the official state lottery of the Commonwealth of the Northern Mariana Islands.
 
 This web application is a **Bitcoin Based Lottery** platform that allows users to participate in a lottery using their token as their ticket of entry.
 
