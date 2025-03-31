@@ -57,10 +57,8 @@ import { useCheckout } from './core/checkout';
 const CheckoutPage = () => {
   const {
     ticketQuantity,
-    hasAgreed,
     showPaymentForm,
-    handleAgree,
-    handleSubmitEmail,
+    handleConfirmation,
     setTicketQuantity,
   } = useCheckout();
 
@@ -72,7 +70,7 @@ const CheckoutPage = () => {
       <button onClick={() => setTicketQuantity(ticketQuantity + 1)}>+</button>
       <button onClick={() => setTicketQuantity(ticketQuantity - 1)}>-</button>
 
-      <button onClick={handleAgree} disabled={!hasAgreed}>
+      <button onClick={handleConfirmation}>
         Agree to Terms
       </button>
 
