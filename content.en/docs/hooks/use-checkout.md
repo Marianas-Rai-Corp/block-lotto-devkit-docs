@@ -8,7 +8,9 @@ title: "useCheckout"
 
 ## Overview
 
-`useCheckout` is a custom React hook that manages the state and logic for the ticket purchasing flow. It handles user interactions such as selecting ticket quantities, submitting emails, choosing payment methods, and processing payments.
+`useCheckout` is a custom React hook that manages the state and logic for the ticket purchasing flow. It contains all the functionality required for the checkout flow such as
+
+selecting ticket quantities, submitting emails, choosing payment methods, and processing payments.
 
 {{% hint warning %}}
 **Important:**  
