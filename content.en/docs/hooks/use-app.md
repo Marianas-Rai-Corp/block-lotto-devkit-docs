@@ -8,11 +8,11 @@ title: "useApp"
 
 ## Overview
 
-`useCheckout` is a custom React hook that manages the state and logic for the ticket purchasing flow. It handles user interactions such as selecting ticket quantities, submitting emails, choosing payment methods, and processing payments.
+`useApp` is a custom React hook that gives access to the user's account and wallet, provides tools to manage ticket redemption and the game. It also provides affiliate information. 
 
 {{% hint warning %}}
 **Important:**  
-`useCheckout` must be used within a `CheckoutProvider` otherwise an error will be thrown.
+`useApp` must be used within a `BlockLottoProvider` otherwise an error will be thrown.
 {{% /hint %}}
 
 ## Values & State Variables
@@ -51,30 +51,5 @@ title: "useApp"
 ## Usage 
 
 ```jsx
-import { useCheckout } from './core/checkout';
 
-const CheckoutPage = () => {
-  const {
-    ticketQuantity,
-    showPaymentForm,
-    handleConfirmation,
-    setTicketQuantity,
-  } = useCheckout();
-
-  return (
-    <div>
-      <h2>Checkout</h2>
-      <p>Selected Tickets: {ticketQuantity}</p>
-
-      <button onClick={() => setTicketQuantity(ticketQuantity + 1)}>+</button>
-      <button onClick={() => setTicketQuantity(ticketQuantity - 1)}>-</button>
-
-      <button onClick={handleConfirmation}>
-        Agree to Terms
-      </button>
-
-      {showPaymentForm && <p>Payment Form Shown</p>}
-    </div>
-  );
-};
 ```
