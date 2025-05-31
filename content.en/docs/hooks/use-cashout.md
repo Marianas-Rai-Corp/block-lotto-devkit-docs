@@ -8,11 +8,11 @@ title: "useCashout"
 
 ## Overview
 
-`useCashout` is a custom React hook that manages the state and logic for the credit cashout flow. It fetches available giftcard options, filters them, provides brand data and completes the flow by building the required transaction to obtain the link to the giftcard.
+`useCashout` is a custom React hook that manages the state and logic for the credit cashout flow. It fetches available giftcard options, filters them, provides brand data and completes the flow by building and broadcasting the required blockchain transaction to obtain the link to the giftcard.
 
 {{% hint warning %}}
 **Important:**  
-`useCashout` must be used within a `CashoutProvider` otherwise an error will be thrown.
+`useCashout` must be used within a `CashoutProvider`.
 {{% /hint %}}
 
 ## Values & State Variables
@@ -38,10 +38,9 @@ title: "useCashout"
 | Function                 | Parameters                             | Return Type | Description                                                         |
 |--------------------------|----------------------------------------|-------------|---------------------------------------------------------------------|
 | `checkBalance`           | `()`                                   | `boolean`   | Checks if balance is sufficiently high for a cashout                |
-| `setGiftcardAmount`      | `(amount: number)`                     | `void`      | Stores currently selected amount for giftcard cashout               |
 | `filterTilloBrands`      | `(country: string, currency: string )` | `void`      | Filters Tillo brands and stores them in `tilloSelection`            |
 | `handleTilloBrandChange` | `(e: Event)`                           | `void`      | Stores selected Tillo brand from `brand-form` in `brandData`        |
-| `requestGiftcard`        | `(brand: string)`                      | `object`    | Requests giftcard cashout for `giftcardAmount` and `brandData.name` |
-| `buildCashoutTx`         | `()`                                   | `object`    | Builds transacation to burn tokens according to `paymentRequest`    |
-| `getGiftcard`            | `(brand: string)`                      | `object`    | Broadcasts transaction to obtain giftcard                           |
-| `handleBrandSubmit`      | `(e: Event)`                           | `void`      | Initiates the token burn to giftcard link flow                      |
+| `getGiftcardLink`            | ``                      | ``    |                            |
+| `setGiftcardAmount`      | `(amount: number)`                     | `void`      | Stores currently selected amount for giftcard cashout               |
+| `setGiftcardLink`         | `(brand: string, onError: func)`                                   | `string`    | Processes blockchain transaction, processes gitfcard and returns link to claim giftcard   |
+| `setTilloStage`      | `(stage: string)`                           | `void`      | State can be used to move from one tillo stage to the next one ('filter', 'brand', 'giftcard')                      |
