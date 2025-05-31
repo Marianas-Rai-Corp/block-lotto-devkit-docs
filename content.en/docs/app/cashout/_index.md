@@ -30,7 +30,7 @@ The required functionality comes from the [**useCashout**](/docs/hooks/use-casho
 2. **Brand Selection**
    - From `tilloSelection` the user can look through the available brands.
    - Using `handleTilloBrandChange` the currently selected brand is available in `brandData`.
-   - Once a brand has been selected, `getGiftcardLink(brand)` can be called to obtain the giftcard link. If succesful, the link will also be available in `giftcardLink`.
+   - Once a brand has been selected, `getGiftcardLink(brand)` can be called to obtain the giftcard link. If successful, the link will also be available in `giftcardLink`.
    - The wallet will now update in the background. The credit balance will decrease by the `giftcardAmount`.
    - Use `setTilloStage("giftcard")` to proceed.
 
