@@ -8,22 +8,19 @@ title: "useCheckout"
 
 ## Overview
 
-`useCheckout` is a custom React hook that manages the state and logic for the ticket purchasing flow. It contains all the functionality required for the checkout flow such as
-
-selecting ticket quantities, submitting emails, choosing payment methods, and processing payments.
+`useCheckout` is a custom React hook that manages the state and logic for the ticket purchasing flow. It contains all the functionality required for the checkout flow such as submitting emails, selecting the quantity of tickets to be bought, choosing the payment method, completing the KYC, processing payments and broadcasting the ticket transaction to the blockchain.
 
 {{% hint warning %}}
 **Important:**  
-`useCheckout` must be used within a `CheckoutProvider` otherwise an error will be thrown.
+`useCheckout` must be used within a `CheckoutProvider`.
 {{% /hint %}}
 
 ## Values & State Variables
 
 | Name                         | Type                            | Description |
 |------------------------------|--------------------------------|-------------|
-| `playerNumbers`              | `array \| null`                | List of player numbers associated with the purchase. |
 | `hasAgreed`                  | `boolean`                      | Tracks whether the user accepted terms and conditions. |
-| `hasEmail`                   | `boolean`                      | Indicates if the user has provided and verified an email. |
+| `hasEmail`                   | `boolean`                      | Indicates if the user has provided an email. |
 | `showPaymentForm`            | `boolean`                      | Determines if the payment form should be displayed. |
 | `ticketQtyError`             | `string \| boolean`            | Error message for ticket quantity input (`false` if no error). |
 | `emailError`                 | `string \| boolean`            | Error message for email input (`false` if no error). |
@@ -40,18 +37,16 @@ selecting ticket quantities, submitting emails, choosing payment methods, and pr
 
 | Function                     | Parameters                     | Return Type        | Description |
 |------------------------------|--------------------------------|--------------------|-------------|
-| `handleReturn`               | `()`                           | `void`             | Redirects user back to the ticket selection screen. |
 | `handleAgree`                | `(e: Event)`                   | `Promise<void>`    | Handles user agreement to terms and conditions. |
-| `handleKYC`                  | `(e: Event)`                   | `Promise<void>`    | Initiates the KYC verification process. |
-| `handleConfirmation`         | `()`                           | `Promise<void>`    | Validates ticket quantity and starts payment processing. |
+| `handleKYCandCapture`                  | `(e: Event, onSuccess: func, onError: func)`                   | `void`    | Launches the KYC process and captures payment on success  |
+| `handlePayment`         | `(onSuccess: func, onError:func)`                           | `void`    | Handles selected ticket purchase options and initializes next steps (KYC, eToken payment or fiat payment) |
 | `handleSubmitEmail`          | `(e: Event)`                   | `Promise<void>`    | Validates and submits user's email. |
 | `handlePaymentMethod`        | `(method: string)`             | `void`             | Sets the selected payment method (`"etoken"` or `"fiat"`). |
+| `initiatePayment`        | `(e: Event)`             | `void`             | Initializes Payment from NMI payment form |
 | `setTicketQuantity`          | `(quantity: number)`           | `void`             | Updates the number of tickets selected. |
-| `setPaymentMetadata`         | `(metadata: object)`           | `void`             | Stores additional payment-related metadata. |
 | `setShowPaymentForm`         | `(show: boolean)`              | `void`             | Controls the visibility of the payment form. |
 
-
-## Usage 
+## Usage
 
 ```jsx
 import { useCheckout } from './core/checkout';
