@@ -6,4 +6,8 @@ title: "Hooks"
 
 ## Overview
 
-The blocklotto-sdk provides all functionality to run the blocklotto, including checkout and cashout. It contains a demo mode to simulate kyc results and the different winning tiers. 
+The blocklotto-sdk provides lottery functionality in form of custom hooks that have to be used in their respective providers:
+
+* `useApp`, `useNotifications` and all other hooks must be used within a `BlockLottoProvider`
+* `useCheckout` must be used within a `CheckoutProvider`
+* `useCashout` must be used within a `CashoutProvider`
