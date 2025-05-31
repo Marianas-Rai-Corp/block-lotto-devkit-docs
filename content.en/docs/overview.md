@@ -6,23 +6,12 @@ title: "Overview"
 
 # Overview
 
-The Marianas Blockchain Lottery, the official state lottery of the Commonwealth of the Northern Mariana Islands.
+The Marianas Blockchain Lottery is running on a provably fair, [Bitcoin-based Protocol](https://github.com/badger-cash/block-lotto-specification).
 
-This web application is a **Bitcoin Based Lottery** platform that allows users to participate in a lottery using their token as their ticket of entry.
+Marianas Rai Corp. provides an open-source React module, [blocklotto-sdk](), that allows creators to build new skins around it.
 
-The token uses the [Simple Ledger Protocol](https://github.com/simpleledger/slp-specifications/blob/master/slp-payment-protocol.md), a battle-tested token protocol supported by wallets on millions of devices, leveraging all open protocols, so anyone can develop applications that support the token. Every transaction is an eCash transaction, and leverages Bitcoin's ultra-secure technology.
+In the lottery, a user buys tickets which are broadcasted to the eCash blockchain, a fork of Bitcoin. With the confirmation of this transaction, multiple random numbers are created and used to calculate the user's winning tier. The winning payouts use an [Simple Ledger Protocol Token Type 2](https://github.com/badger-cash/slp-specifications/blob/master/slp-token-type-2.md), leveraging Bitcoin's ultra-secure technology. Multiple options exist to cash out the token winnings.
 
 The seller of the digital good in this transaction is [Marianas Rai Corp.](https://nmrai.com), the official licensed operator of the lottery.
 
 The purchase is for a lottery ticket only. It is not a purchase of digital currency, credits on any third-party platform, or any other product or service.
-
-Once purchased, the data comprising the lottery ticket will be stored, as a transaction, on the eCash (XEC) blockchain. When the ticket transaction is confirmed in a block, this unhosted and non-custodial wallet will independently use the lottery ticket data to perform ticket redemption and (if applicable) payout of credits.
-
-## Advantages
-
-There are several crucial advantages over tokens as you have known them.
-
-1. **Self Minted**: There is no need to buy or sell tickets. You mint and burn the tickets right in your own wallet.
-2. **Built on Bitcoin**: Each transaction has the same security and functionality as any other transaction on eCash, a fork of Bitcoin.
-3. **Safe and Simple**: We utilize the Simple Ledger Protocol, so there are no buggy smart contracts or complicated wallet installations needed to send and receive tokens.
-4. **Customer Service**: Mint and burn problems can be easily rectified due to our unique self-mint protocol. 
