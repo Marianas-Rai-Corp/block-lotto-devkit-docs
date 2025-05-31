@@ -8,11 +8,11 @@ title: "useApp"
 
 ## Overview
 
-`useApp` is a custom React hook that gives access to the user's account and wallet, provides tools to manage ticket redemption and the game. It also provides affiliate information. 
+`useApp` is a custom React hook that gives access to the user's account and wallet, provides tools to manage ticket creation, redemption and the game. It also provides affiliate information.
 
 {{% hint warning %}}
 **Important:**  
-`useApp` must be used within a `BlockLottoProvider` otherwise an error will be thrown.
+`useApp` must be used within a `BlockLottoProvider`.
 {{% /hint %}}
 
 ## Values & State Variables
@@ -23,13 +23,16 @@ title: "useApp"
 | `user`              | `object`  | Contains account data (email, ip/geo permissions, kyc status)                        |
 | `wallet`            | `object`  | Contains keys and addresses for the user's self-hosted eCash wallet                  |
 | `unredeemedTickets` | `array`   | Contains all tickets yet to be redeemed                                              |
-| `balance`           | `number`  | Total amount of credits for the user's eCash address                                 |
-| `playerNumbers`     | `array`   | Stores the four chosen block lotto numbers used to create the ticket                 |
+| `redeemableTickets` | `array`   | Contains all tickets available for redemption                                              |
+| `balance`           | `number`  | Total amount of credits in the user's eCash address                                 |
+| `playerNumbers`     | `array`   | Stores the four chosen block lotto numbers (integers) used to create the ticket                 |
 | `ticketsToRedeem`   | `array`   | Stores one or multiple ticket(s) that can be redeemed in a row.                      |
 | `gameTickets`       | `array`   | Stores one or multiple ticket(s) that are used for the game (revelation of winnings) |
-| `ticketQuantity`    | `number`  | Selected number of tickets to be purchased                                           |
-| `affiliateId`       | `string`  | Id of the affiliate that referred the user to block lotto                            |
-| `userAffiliateId`   | `string`  | The user's affiliate id to act as an affiliate                                       |
+| `isFirstTicket`       | `boolean`   | Allows for separate UI elements for new users |
+| `ticketQuantity`    | `number`  | Number of tickets to be purchased                                           |
+| `externalAid`       | `string`  | Id of the affiliate that referred the user to block lotto                            |
+| `affiliate`   | `object`  | Contains the user's affiliate id and link to act as an affiliate                                       |
+| `walletUpdateAvailable`   | `boolean`  | Indicates whether wallet can be updated                                      |
 
 ---
 
@@ -39,6 +42,10 @@ title: "useApp"
 |----------------------|--------------------------------------|---------------------------------|-----------------------------------------------------------------------------|
 | `checkRedeemability` | `(ticket: Ticket, polling: boolean)` | `boolean`                       | Checks whether an unredeemed ticket is redeemable                           |
 | `redeemTicket`       | `(ticket: Ticket)`                   | `Promise<string> Promise<void>` | Redeems an unredeemed ticket and returns the hash of the redeem transaction |
+| `changeEmail`     | `(email: string)`               | `void`                          |  Changes a user's email                              |
+| `importWallet`     | `(mnemonic: string)`               | `void`                          | Imports a wallet from a 12 word seed phrase. Thus the app forgets the old wallet's seed phrase!                               |
+| `validateMnemonic`     | `(mnemnoic: string)`               | `boolean`                          | Validates a seed phrase                               |
+| `updateWallet`     | `()`               | `void`                          | Updates wallet if `walletUpdateAvailable` is `true`                               |
 | `setTicketQuantity`  | `(quantity: number)`                 | `void`                          | sets the ticket quantity selected by the user                               |
 | `setProtection`      | `(isProtected: boolean)`             | `void`                          | Activates/deactivates password protection in development mode               |
 | `setLoadingStatus`   | `(loadingStatus: string boolean)`    | `void`                          | Controls the global loading screen                                          |
@@ -47,9 +54,3 @@ title: "useApp"
 | `setGameTickets`     | `(gameTickets: array)`               | `void`                          | Updates the tickets to be used by a game                                    |
 
 ---
-
-## Usage 
-
-```jsx
-
-```
