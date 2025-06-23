@@ -36,7 +36,7 @@ This is a simplified code example. To see a full example using our prebuilt comp
 {{% columns ratio="2:1" %}}
 
 ```jsx
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 
 // core functions
@@ -51,13 +51,14 @@ export default function Cart() {
         ticketPrice,
         ticketQtyError,
         ticketQuantity,
-        paymentProcessor,
         maxEtokenTicketQuantity,
         handlePayment,
-        handlePaymentMethod,
         setTicketQuantity,
         setShowPaymentForm,
     } = useCheckout();
+
+    const [paymentMethod, setPaymentMethod] = useState("NMIC");
+
 
     const handleReturn = () => {
         const previousPath = "/select";
@@ -93,7 +94,7 @@ export default function Cart() {
 
                     <div>
                         <div
-                            onClick={() => handlePaymentMethod("NMIC")}
+                            onClick={() => setPaymentMethod("NMIC")}
                             $active={paymentProcessor === "NMIC"}
                         >
                             Credit Card
@@ -101,7 +102,7 @@ export default function Cart() {
                         
                         {maxEtokenTicketQuantity >= ticketQuantity &&
                             <div
-                                onClick={() => handlePaymentMethod("etoken")}
+                                onClick={() => setPaymentMethod("etoken")}
                                 $active={paymentProcessor === "etoken"}
                             >
                                 Pay with Balance
@@ -115,7 +116,7 @@ export default function Cart() {
 
             <button 
                 onClick={() => 
-                    handlePayment(handlePaymentSuccess, handlePaymentError)}
+                    handlePayment(paymentMethod, handlePaymentSuccess, handlePaymentError)}
             >
                     Pay
             </button>
@@ -126,7 +127,7 @@ export default function Cart() {
                     <NmiCheckoutForm />
                     <button
                         type="submit"
-                        form={`${paymentProcessor}-form`}
+                        form={`${paymentMethod}-form`}
                     >
                         Pay
                     </button>

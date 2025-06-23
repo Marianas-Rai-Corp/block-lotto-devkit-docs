@@ -40,12 +40,13 @@ title: "useApp"
 
 | Function             | Parameters                           | Return Type                     | Description                                                                 |
 |----------------------|--------------------------------------|---------------------------------|-----------------------------------------------------------------------------|
-| `checkRedeemability` | `(ticket: Ticket, polling: boolean)` | `boolean`                       | Checks whether an unredeemed ticket is redeemable                           |
+| `checkTicketRedeemability` | `(ticket: Ticket, polling: boolean, onResult: function)` | `onResult({redeemable: boolean, message: string})`                       | Checks whether an unredeemed ticket is redeemable                           |
 | `redeemTicket`       | `(ticket: Ticket)`                   | `Promise<string> Promise<void>` | Redeems an unredeemed ticket and returns the hash of the redeem transaction |
 | `changeEmail`     | `(email: string)`               | `void`                          |  Changes a user's email                              |
 | `importWallet`     | `(mnemonic: string)`               | `void`                          | Imports a wallet from a 12 word seed phrase. Thus the app forgets the old wallet's seed phrase!                               |
 | `validateMnemonic`     | `(mnemnoic: string)`               | `boolean`                          | Validates a seed phrase                               |
 | `updateWallet`     | `()`               | `void`                          | Updates wallet if `walletUpdateAvailable` is `true`                               |
+| `getFormattedTicketData` | `ticket: Ticket` | `object` | Parses times, hash and the detailed result |
 | `setTicketQuantity`  | `(quantity: number)`                 | `void`                          | sets the ticket quantity selected by the user                               |
 | `setProtection`      | `(isProtected: boolean)`             | `void`                          | Activates/deactivates password protection in development mode               |
 | `setLoadingStatus`   | `(loadingStatus: string boolean)`    | `void`                          | Controls the global loading screen                                          |

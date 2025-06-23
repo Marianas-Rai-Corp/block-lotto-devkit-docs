@@ -37,12 +37,11 @@ title: "useCheckout"
 
 | Function                     | Parameters                     | Return Type        | Description |
 |------------------------------|--------------------------------|--------------------|-------------|
-| `handleAgree`                | `(e: Event)`                   | `Promise<void>`    | Handles user agreement to terms and conditions. |
+| `handleAgree`                | `(e: Event) \| ()`                   | `Promise<void>`    | Handles user agreement to terms and conditions. |
 | `handleKYCandCapture`                  | `(e: Event, onSuccess: func, onError: func)`                   | `void`    | Launches the KYC process and captures payment on success  |
-| `handlePayment`         | `(onSuccess: func, onError:func)`                           | `void`    | Handles selected ticket purchase options and initializes next steps (KYC, eToken payment or fiat payment) |
-| `handleSubmitEmail`          | `(e: Event)`                   | `Promise<void>`    | Validates and submits user's email. |
-| `handlePaymentMethod`        | `(method: string)`             | `void`             | Sets the selected payment method (`"etoken"` or `"fiat"`). |
-| `initiatePayment`        | `(e: Event)`             | `void`             | Initializes Payment from NMI payment form |
+| `handlePayment`         | `(paymentMethod: string, onSuccess: func, onError:func)`                           | `void`    | Handles selected ticket purchase options and initializes next steps (KYC, eToken payment or fiat payment) |
+| `handleSubmitAccount`          | `(e: Event)`                   | `Promise<void>`    | Validates and submits user's email from a form. |
+| `initiatePayment`        | `(e: Event)`             | `void`             | Initializes Payment with NMI payment form |
 | `setTicketQuantity`          | `(quantity: number)`           | `void`             | Updates the number of tickets selected. |
 | `setShowPaymentForm`         | `(show: boolean)`              | `void`             | Controls the visibility of the payment form. |
 

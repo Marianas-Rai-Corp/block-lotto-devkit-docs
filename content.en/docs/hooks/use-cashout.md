@@ -38,9 +38,9 @@ title: "useCashout"
 | Function                 | Parameters                             | Return Type | Description                                                         |
 |--------------------------|----------------------------------------|-------------|---------------------------------------------------------------------|
 | `checkBalance`           | `()`                                   | `boolean`   | Checks if balance is sufficiently high for a cashout                |
-| `filterTilloBrands`      | `(country: string, currency: string )` | `void`      | Filters Tillo brands and stores them in `tilloSelection`            |
+| `filterTilloBrands`      | `(country: string, currency: string )` | `array`      | Filters Tillo brands and stores them in `tilloSelection` and additionally returns it.           |
 | `handleTilloBrandChange` | `(e: Event)`                           | `void`      | Stores selected Tillo brand from `brand-form` in `brandData`        |
-| `getGiftcardLink`            | ``                      | ``    |                            |
+| `getGiftcardLink`            | `(brand: string, onError: function)`                      | `string`    |                            |
 | `setGiftcardAmount`      | `(amount: number)`                     | `void`      | Stores currently selected amount for giftcard cashout               |
 | `setGiftcardLink`         | `(brand: string, onError: func)`                                   | `string`    | Processes blockchain transaction, processes gitfcard and returns link to claim giftcard   |
 | `setTilloStage`      | `(stage: string)`                           | `void`      | State can be used to move from one tillo stage to the next one ('filter', 'brand', 'giftcard')                      |
