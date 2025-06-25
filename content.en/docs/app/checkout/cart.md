@@ -1,14 +1,14 @@
 ---
 weight: 4
 bookFlatSection: true
-title: "Cart"
+title: "Payment"
 ---
 
-# Cart
+# Payment
 
 ## Overview
 
-The `Cart` component renders the payment page in the checkout flow. This component allows the user to select the number of tickets to be purchased and the payment method. Currently the user can choose to pay via credit card or with credits won from previous tickets. In case of a credit card payment additional user data needs to be submitted.
+The `Payment` component renders the payment page in the checkout flow. This component allows the user to select the number of tickets to be purchased and the payment method. Currently the user can choose to pay via credit card or with credits won from previous tickets. In case of a credit card payment additional user data needs to be submitted. If an eToken payment is chosen, the payment can be faciliated through the `handlePayment` function directly. If however a credit card payment is chosen, first `handlePayment` needs to be called upon that choice, then upon `showPaymentForm` the first form (`firstName`, `lastName` and `zip`) can be shown. Upon submitting that form, `initiatePayment(e)` launches the credit card payment with Collect.js.
 
 ---
 
@@ -24,7 +24,6 @@ The `Cart` component renders the payment page in the checkout flow. This compone
     + `paymentProcessor` (string): Contains the selected payment processor.
     + `maxEtokenTicketQuantity` (number): Contains the maximum ticket quantity to be bought with existing credits.
     + `handlePayment` (function): Handles selected ticket purchase options and initializes next steps (KYC, eToken payment or fiat payment)
-    + `handlePaymentMethod` (function): Sets the selected payment method (`"etoken"` or `"fiat"`).
     + `setTicketQuantity` (function): Updates the number of tickets selected to be purchased.
 
 ---
