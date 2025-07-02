@@ -38,7 +38,7 @@ The `hasAgreed`, `hasEmail`, and `showKyc` states from `useCheckout` are essenti
    - The `Cart` component is rendered for the user to choose the ticket quantity, payment method. If the user already has completed the KYC process, the payment will take place immediatly and the ticket will be broadcast. If however, the user has yet to complete the KYC, their payment data will only be validated and only be used in case of a successful KYC.
 
 4. **KYC Verification Check**
-   - If KYC is required (`showKyc` is `true`), the `Kyc` component is shown. After a successful KYC, the previuosly submitted payment data is used to capture the payment and complete the ticket issuance.
+   - If KYC is required (`showKyc` is `true`), the `Kyc` component is shown. After a successful KYC, the previuosly submitted payment data is used to capture the payment and complete the ticket issuance.  Only this one time after the KYC, the ticket issuance and capturing the payment might take between 20 and 40 seconds.
 
 
 
