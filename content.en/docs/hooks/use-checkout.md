@@ -27,9 +27,8 @@ title: "useCheckout"
 | `countryError`               | `string \| boolean`            | Error message for country restrictions (`false` if no error). |
 | `showKyc`                    | `boolean`                      | Indicates if the KYC verification step should be displayed. |
 | `ticketQuantity`             | `number`                       | Number of tickets selected by the user. |
-| `paymentProcessor`           | `string`                       | Selected payment method (`"NMIC"`, `"etoken"`, `"fiat"`). |
 | `maxEtokenTicketQuantity`    | `number`                       | Maximum tickets allowed for purchase via eToken. |
-| `ticketPrice`                | `number`                       | Price per ticket in the selected currency. |
+| `ticketPrice`                | `number`                       | Price per ticket. |
 
 ---
 
@@ -43,7 +42,6 @@ title: "useCheckout"
 | `handleSubmitAccount`          | `(e: Event)`                   | `Promise<void>`    | Validates and submits user's email from a form. |
 | `initiatePayment`        | `(e: Event)`             | `void`             | Initializes Payment with NMI payment form |
 | `setTicketQuantity`          | `(quantity: number)`           | `void`             | Updates the number of tickets selected. |
-| `setShowPaymentForm`         | `(show: boolean)`              | `void`             | Controls the visibility of the payment form. |
 
 ## Usage
 
