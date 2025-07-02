@@ -44,6 +44,8 @@ The required functionality comes from the [**useCashout**](/docs/hooks/use-casho
 
 ### Cashout Example
 
+{{% columns ratio="2:1" %}}
+
 ```jsx
 // node modules
 import React, { useEffect } from 'react';
@@ -149,7 +151,16 @@ export default Cashout;
 
 ```
 
+
+<--->
+
+![Cashout Example](/cashout/cashout-example.png)
+
+{{% /columns %}}
+
 ### Filter Example
+
+{{% columns ratio="2:1" %}}
 
 ```jsx
 import React from 'react';
@@ -215,6 +226,12 @@ export default function Filter() {
 }
 ```
 
+<--->
+
+![Brand Example](/cashout/brand-example.png)
+
+{{% /columns %}}
+
 ### Brands
 
 ```jsx
@@ -270,6 +287,8 @@ export default function Brand() {
 
 ### Giftcard Link
 
+{{% columns ratio="2:1" %}}
+
 ```jsx
 import React from 'react';
 import Form from './Form';
@@ -307,3 +326,9 @@ export default function GiftCard() {
     )
 }
 ```
+
+<--->
+
+![Giftcard Example](/cashout/claim-example.png)
+
+{{% /columns %}}
