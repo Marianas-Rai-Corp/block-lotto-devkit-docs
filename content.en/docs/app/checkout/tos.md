@@ -62,6 +62,6 @@ export default function Tos() {
 
 <--->
 
-![Terms of Service Example](/checkout/tos-example.png)
+![Terms of Service Example](/checkout/tos-example-v2.png)
 
 {{% /columns %}}

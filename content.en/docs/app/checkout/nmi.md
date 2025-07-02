@@ -72,6 +72,6 @@ export const NmiCheckoutForm = () => {
 
 <--->
 
-![Cart Example](/checkout/cart-example.png)
+![Cart Example](/checkout/cart-example-v2.png)
 
 {{% /columns %}}

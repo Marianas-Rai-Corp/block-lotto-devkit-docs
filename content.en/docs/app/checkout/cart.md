@@ -140,6 +140,6 @@ export default function Cart() {
 
 <--->
 
-![Cart Example](/checkout/cart-example.png)
+![Cart Example](/checkout/cart-example-v2.png)
 
 {{% /columns %}}

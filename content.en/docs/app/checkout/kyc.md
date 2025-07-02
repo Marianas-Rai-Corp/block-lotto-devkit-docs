@@ -55,6 +55,6 @@ export default function Kyc() {
 
 <--->
 
-![KYC Example](/checkout/kyc-example.png)
+![KYC Example](/checkout/kyc-example-v2.png)
 
 {{% /columns %}}

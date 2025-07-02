@@ -88,6 +88,6 @@ export default function Email() {
 
 <--->
 
-![Account Example](/checkout/account-example.png)
+![Account Example](/checkout/account-example-v2.png)
 
 {{% /columns %}}
