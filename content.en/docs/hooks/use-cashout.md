@@ -42,5 +42,4 @@ title: "useCashout"
 | `handleTilloBrandChange` | `(e: Event)`                           | `void`      | Stores selected Tillo brand from `brand-form` in `brandData`        |
 | `getGiftcardLink`            | `(brand: string, onError: function)`                      | `string`    |                            |
 | `setGiftcardAmount`      | `(amount: number)`                     | `void`      | Stores currently selected amount for giftcard cashout               |
-| `setGiftcardLink`         | `(brand: string, onError: func)`                                   | `string`    | Processes blockchain transaction, processes gitfcard and returns link to claim giftcard   |
 | `setTilloStage`      | `(stage: string)`                           | `void`      | State can be used to move from one tillo stage to the next one ('filter', 'brand', 'giftcard')                      |
