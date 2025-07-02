@@ -5,3 +5,5 @@ title: "Home"
 ---
 
 # Home
+
+![Home Example](/usage/usage-v2.png)
