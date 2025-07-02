@@ -21,21 +21,21 @@ theme = "mrc"
   contentDir = 'content.en'
   weight = 1
 
-[languages.ex]
-  languageName = 'Example'
-  contentDir = 'content.example'
-  weight = 2
+# [languages.ex]
+#   languageName = 'Example'
+#   contentDir = 'content.example'
+#   weight = 2
 
-[languages.he]
-  languageName = 'עִברִית'
-  contentDir = 'content.he'
-  languageDirection = 'rtl'
-  weight = 3
+# [languages.he]
+#   languageName = 'עִברִית'
+#   contentDir = 'content.he'
+#   languageDirection = 'rtl'
+#   weight = 3
 
-[languages.zh]
-  languageName = '中国人'
-  contentDir = 'content.zh'
-  weight = 4
+# [languages.zh]
+#   languageName = '中国人'
+#   contentDir = 'content.zh'
+#   weight = 4
 
 
 # Menu configuration
@@ -43,13 +43,13 @@ theme = "mrc"
 # [[menu.before]]
 
 [[menu.after]]
-  name = "Clux Demo"
-  url = "https://dev.cert.cash/"
+  name = "Block Lotto Demo"
+  url = "https://beta.lotto.mp/"
   weight = 10
 
 [[menu.after]]
   name = "Github"
-  url = "https://github.com/hansekontor/clux"
+  url = "https://github.com/nmrai/block-lotto-dev-kit"
   weight = 20
 
 [params]
@@ -77,7 +77,7 @@ theme = "mrc"
 
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.
-  BookRepo = 'https://github.com/ryansallen98/clux-documentation' # Required for 'Edit this page' links
+  BookRepo = 'https://github.com/Marianas-Rai-Corp/block-lotto-devkit-docs' # Required for 'Edit this page' links
 
   # (Optional, default 'commit') Specifies commit portion of the link to the page's last modified
   # commit hash for 'doc' page type.
