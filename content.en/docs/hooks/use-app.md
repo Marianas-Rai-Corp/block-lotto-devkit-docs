@@ -46,6 +46,7 @@ title: "useApp"
 | `validateMnemonic`     | `(mnemnoic: string)`               | `boolean`                          | Validates a seed phrase                               |
 | `updateWallet`     | `()`               | `void`                          | Updates wallet if `walletUpdateAvailable` is `true`                               |
 | `getAffiliateLink`     | `(options: object)`               | `string`                          | Returns an affiliate link from a url or a path                               |
+| `getAffiliateTicketData` | `()` | `object` | Returns transactions (txs) and utxos for the pay-to-scripthash affiliate address | 
 | `setTicketQuantity`  | `(quantity: number)`                 | `void`                          | sets the ticket quantity selected by the user                               |
 | `setLoadingStatus`   | `(loadingStatus: string boolean)`    | `void`                          | Controls the global loading screen                                          |
 | `setPlayerNumbers`   | `(playerNumbers: array)`             | `void`                          | Updates the selected player numbers                                         |
